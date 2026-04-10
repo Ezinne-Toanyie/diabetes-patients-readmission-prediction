@@ -114,14 +114,14 @@ cd diabetes-patients-readmission-prediction
 pip install -r requirements.txt
 ```
 
+
 Open and run the notebooks **in order** in Google Colab or Jupyter:
 
 ```
 01_eda.ipynb  →  02_cleaning.ipynb  →  03_modeling.ipynb
-=======
 
 
----
+```
 
 ## Dependencies
 
@@ -133,9 +133,7 @@ seaborn
 scikit-learn
 joblib
 jupyter
-
 ```
-
 ---
 
 ##  Technical Report
@@ -147,4 +145,5 @@ A full write-up covering methodology, results, and recommendations is available 
 ##  Author
 
 **Ezinne Toanyie**
+
 [LinkedIn](https://linkedin.com/in/ezinne-toanyie) · [GitHub](https://github.com/Ezinne-Toanyie) · [Email](mailto:ce.toanyie@email.com)
