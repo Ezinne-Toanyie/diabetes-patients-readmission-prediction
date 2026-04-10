@@ -1,4 +1,4 @@
-#  Diabetes Hospital Readmission Prediction
+#  Diabetes Patients Readmission Prediction
 
 
 > A supervised machine learning project that predicts whether a diabetic patient will be **readmitted to hospital within 30 days**, enabling healthcare providers to intervene early and reduce costs.
