@@ -1,16 +1,11 @@
-# 🏥 Diabetes Hospital Readmission Prediction
+#  Diabetes Hospital Readmission Prediction
 
-<<<<<<< HEAD
-![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python&logoColor=white)
-![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-orange?logo=scikit-learn&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 > A supervised machine learning project that predicts whether a diabetic patient will be **readmitted to hospital within 30 days**, enabling healthcare providers to intervene early and reduce costs.
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 Hospital readmissions within 30 days are a key quality metric in healthcare and cost the healthcare system billions annually. This project builds and evaluates classification models on **101,766 real patient encounters** from 130 US hospitals (1999–2008), identifying patients at high risk of early readmission.
 
@@ -18,7 +13,7 @@ Hospital readmissions within 30 days are a key quality metric in healthcare and 
 
 ---
 
-## 🎯 Key Results
+##  Key Results
 
 | Model | Accuracy | AUC-ROC | Notes |
 |---|---|---|---|
@@ -28,11 +23,11 @@ Hospital readmissions within 30 days are a key quality metric in healthcare and 
 
 > Trained on 69,980 cleaned patient records · 80/20 train/validation split · evaluated on 13,996 held-out records.
 > 
-> ⚠️ **Note:** The dataset is class-imbalanced (~91% not readmitted, ~9% readmitted within 30 days). High accuracy reflects this imbalance — AUC-ROC is the more meaningful metric here. Random Forest achieved the best discrimination between classes.
+>  **Note:** The dataset is class-imbalanced (~91% not readmitted, ~9% readmitted within 30 days). High accuracy reflects this imbalance — AUC-ROC is the more meaningful metric here. Random Forest achieved the best discrimination between classes.
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Area | Tools |
 |---|---|
@@ -44,7 +39,7 @@ Hospital readmissions within 30 days are a key quality metric in healthcare and 
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 ```
 diabetes-readmission-prediction/
@@ -104,18 +99,18 @@ diabetes-readmission-prediction/
 | Records | 101,766 patient encounters |
 | Features | 50 (demographics, diagnoses, medications, visit history) |
 | Target | Binary — readmitted within 30 days (1) or not (0) |
-| Reference | [Strack et al., 2014](https://doi.org/10.1155/2014/781670) |
+| Reference |[Tayal, S. Diabetic Patients Readmission Prediction [dataset]](https://www.kaggle.com/datasets/saurabhtayal/diabetic-patients-readmission-prediction) |
 
 ---
 
-## ⚙️ Setup & Usage
+##  Setup & Usage
 
 ```bash
-# Clone the repository
+### Clone the repository
 git clone https://github.com/Ezinne-Toanyie/diabetes-readmission-prediction.git
-cd diabetes-readmission-prediction
+cd diabetes-patients-readmission-prediction
 
-# Install dependencies
+### Install dependencies
 pip install -r requirements.txt
 ```
 
@@ -124,98 +119,7 @@ Open and run the notebooks **in order** in Google Colab or Jupyter:
 ```
 01_eda.ipynb  →  02_cleaning.ipynb  →  03_modeling.ipynb
 =======
-Predicting 30-day hospital readmission for diabetic patients using machine learning, based on the [UCI Diabetes 130-US Hospitals dataset](https://archive.ics.uci.edu/dataset/296/diabetes+130-us+hospitals+for+years+1999-2008) (101,766 encounters, 50 features, 1999–2008).
 
----
-
-## Project structure
-
-```
-diabetes-readmission/
-├── data/
-│   ├── raw/                    # Original dataset files (unchanged)
-│   │   ├── diabetic_data.csv
-│   │   └── IDs_mapping.csv
-│   └── processed/              # Cleaned & engineered data
-│       └── diabetic_clean.csv
-├── notebooks/
-│   ├── 01_eda.ipynb            # Exploratory data analysis
-│   ├── 02_cleaning.ipynb       # Data cleaning & feature engineering
-│   └── 03_modeling.ipynb       # Model training & evaluation
-├── reports/
-│   ├── technical_report.pdf
-│   └── figures/
-├── requirements.txt
-└── .gitignore
-```
-
----
-
-## Dataset
-
-| Property | Value |
-|---|---|
-| Source | UCI ML Repository |
-| Encounters | 101,766 |
-| Features | 50 (demographics, diagnoses, medications, visit history) |
-| Target | `readmitted` — binary: `1` if readmitted within 30 days, `0` otherwise |
-| Missing data | `weight` (97%), `medical_specialty` (53%), `payer_code` (52%) |
-
-> The full data dictionary is available in `data/raw/IDs_mapping.csv`.
-
----
-
-## Notebooks
-
-### 01 — Exploratory Data Analysis
-- Loads the raw dataset and inspects its shape, types, and summary statistics
-- Identifies and visualises missing values
-- Analyses the target variable (`readmitted`) distribution
-- Explores readmission patterns by age, gender, and race
-- Examines relationships between hospital stay length, medication count, and readmission using boxplots and a correlation heatmap
-
-### 02 — Data Cleaning & Feature Engineering
-- Replaces `?` and `Unknown/Invalid` with `NaN`
-- Removes duplicate patient encounters (keeps first visit only)
-- Drops high-missing columns: `weight`, `max_glu_serum`, `A1Cresult`
-- Imputes remaining missing values (mode for categorical, median for numerical)
-- Removes expired/hospice discharge records (cannot be readmitted)
-- Maps admission type, discharge disposition, and admission source IDs to readable labels
-- **Feature engineering:**
-  - Converts age intervals (e.g. `[60-70)`) to numeric midpoints
-  - Creates `total_visits` = outpatient + emergency + inpatient visits
-  - Creates `total_med_types` = count of distinct medication types prescribed
-  - Converts target to binary: `<30` → `1`, `>30` / `NO` → `0`
-- Saves cleaned data to `data/processed/diabetic_clean.csv`
-
-### 03 — Modelling
-- Loads the cleaned dataset and selects 17 features for training
-- Encodes categorical variables using Label Encoding and One-Hot Encoding
-- Scales numeric features using `MinMaxScaler`
-- Splits data 80/20 into training and validation sets
-- Trains and evaluates three classifiers, each implemented in both OOP and procedural approaches:
-  - **K-Nearest Neighbors (KNN)**
-  - **Decision Tree**
-  - **Random Forest**
-- Evaluates models using Accuracy, Confusion Matrix, Classification Report, and AUC-ROC
-
----
-
-
-## Setup
-
-**Requirements:** Python 3.9+, Google Colab 
-
-```bash
-# Clone the repository — do NOT fork
-git clone https://github.com/ParoCyber-DS-ML-Project-Team1/diabetes-readmission-prediction.git
-cd diabetes-readmission-prediction
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-Run the notebooks in order: `01_eda` → `02_cleaning` → `03_modeling`.
 
 ---
 
@@ -229,32 +133,18 @@ seaborn
 scikit-learn
 joblib
 jupyter
->>>>>>> 44786269d90252e81385bab5913976f3b590b8f3
+
 ```
 
 ---
 
-<<<<<<< HEAD
-## 📄 Technical Report
+##  Technical Report
 
 A full write-up covering methodology, results, and recommendations is available in [`reports/technical_report.pdf`](reports/technical_report.pdf).
 
 ---
 
-## 👤 Author
+##  Author
 
 **Ezinne Toanyie**
 [LinkedIn](https://linkedin.com/in/ezinne-toanyie) · [GitHub](https://github.com/Ezinne-Toanyie) · [Email](mailto:ce.toanyie@email.com)
-=======
-## Contributing
-
-1. Clone the repo - do not fork.
-2. Create a feature branch before writing any code:
-   ```bash
-   git checkout -b feature/your-name-task
-   ```
-3. Open a Pull Request into `main` when done.
-4. Never commit directly to `main`.
-
----
->>>>>>> 44786269d90252e81385bab5913976f3b590b8f3
